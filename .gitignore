@@ -1,11 +1,13 @@
 # Default ignored files
 /shelf/
-/workspace.xml
+/.idea/workspace.xml
 # Datasource local storage ignored files
 /../../../../../../../:\Projekty\Projekty Java\Projekty szkolne\UTP sem3\UTP3_SG_S20978\.idea/dataSources/
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
 
-*.classpath
-*.project
+/.project
+/.classpath
+/UTP3_SG_S20978.iml
+/.idea/
