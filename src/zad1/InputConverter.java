@@ -1,15 +1,20 @@
 package zad1;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.util.function.Function;
 
 public class InputConverter<T> {
 
-    private final T value;
+    private final T file;
 
     public InputConverter(T file) {
-        this.value = file;
+        this.file = file;
+    }
+
+    public <T>T convertBy(Function ... function){
+        Object x = file;
+        for(Function f : function){
+            x = f.apply(x);
+        }
+        return (T)x;
     }
 }
