@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 
 public class Maybe<T> {
 
-    T value = null;
+    T value;
 
     private Maybe(T value) {
         this.value = value;
@@ -18,7 +18,7 @@ public class Maybe<T> {
     }
 
     public static <T> Maybe<T> of(T value) {
-        return new Maybe<T>(value);
+        return new Maybe<>(value);
     }
 
     public void ifPresent(Consumer<T> cons){
@@ -26,7 +26,7 @@ public class Maybe<T> {
     }
 
     public <R>Maybe<R> map(Function<T,R> func){
-        return new Maybe<R>((isPresent()) ? func.apply(value) : null);
+        return new Maybe<>((isPresent()) ? func.apply(value) : null);
     }
     public T get(){
         if(!isPresent()) throw new NoSuchElementException("maybe is empty");
