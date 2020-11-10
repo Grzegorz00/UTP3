@@ -7,12 +7,12 @@
 package zad1;
 
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 import java.util.function.Function;
 import java.util.regex.*;
 
@@ -20,18 +20,11 @@ public class Main {
   public static void main(String[] args) {
 
     Function<String,List<String>> flines = x -> {
-      List <String> list = new ArrayList<>();
-      Scanner sc = null;
       try {
-        sc = new Scanner(new File(x));
-      } catch (FileNotFoundException e) {
-        e.printStackTrace();
+        return Files.readAllLines(Paths.get(x));
+      } catch (IOException e) {
+        return null;
       }
-
-      while (sc.hasNextLine()){
-        list.add(sc.nextLine());
-      }
-      return list;
     };
 
     Function<List<String>,String> join = x -> String.join("",x);
