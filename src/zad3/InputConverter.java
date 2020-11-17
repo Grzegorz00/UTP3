@@ -1,6 +1,5 @@
 package zad3;
 
-import java.util.List;
 import java.util.function.Function;
 
 public class InputConverter<T> {
@@ -11,12 +10,6 @@ public class InputConverter<T> {
         this.file = file;
     }
 
-    /*public List<String> convertBy(Function<String, List<String>> f){
-        String x = (String)file;
-        List<String> list;
-        list = f.apply(x);
-        return list;
-    }*/
 
     public <R>R convertBy(Function<T,R> f1){
         Object x = file;
